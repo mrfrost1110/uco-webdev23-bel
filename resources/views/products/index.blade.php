@@ -6,7 +6,7 @@
         @foreach ($products as $item)
             <div class="col-3 mb-3 d-flex">
                 <a href="{{ route('products.show', $item['id']) }}" style="text-decoration:none; color:black;">
-                    <div class="card h-100">
+                    <div class="card h-100" style="position: relative;">
                         <img src="{{ asset('assets/products/' . $item['subCategory'] . '/' . $item['name'] . '/1.jpg') }}"
                             class="card-img-top"
                             alt="Product Image"
@@ -15,12 +15,16 @@
                             <p style="color:gray; font-size:8pt"> {{$item['category']}} </p>
                             <h5 class="card-title" style="font-size:10pt">{{ $item['subCategory'] . ' ' . $item['name'] }}</h5>
                             <p class="card-text" style="font-size: 10pt; color:red;">
-                                {{ 'Rp. ' . $item['price']}}
+                                {{ 'Rp. ' . $item['price'] }}
                                 <span style="color: gray"><s>
-                                   {{'Rp. ' . ($item['price']*(100-$item['disc']/100))}}
+                                   {{ 'Rp. ' . ($item['price'] * (100 - $item['disc'] / 100)) }}
                                 </s></span>
                                 <span style="color: black"> {{$item['disc'] . '%'}} </span>
                             </p>
+                        </div>
+                        <!-- Button to Edit -->
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <a href="{{ route('products.edit', $item['id']) }}" class="btn btn-sm btn-primary">Edit</a>
                         </div>
                     </div>
                 </a>

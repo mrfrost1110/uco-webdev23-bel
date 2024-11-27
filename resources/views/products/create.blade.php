@@ -27,8 +27,8 @@
 
             <br><br>
 
-            <label for="subcategory">Subcategory:</label>
-            <select id="subcategory" name="subcategory" required>
+            <label for="subCategory">Subcategory</label>
+            <select id="subCategory" name="subCategory" required>
                 <option value="">Select Subcategory</option>
                 <option value="POLO SHIRT">POLO SHIRT</option>
                 <option value="SANDALS">SANDALS</option>

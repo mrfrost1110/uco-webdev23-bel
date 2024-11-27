@@ -198,7 +198,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -206,15 +206,46 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // Validasi data input
+        $request->validate([
+            'id' => 'required|max:5',
+            'name' => 'required|max:50',
+            'category' => 'required|max:50',
+            'subCategory' => 'required|max:50',
+            'price' => 'required|numeric',
+            'disc' => 'required|numeric',
+            'image' => 'nullable|url',
+            'otherImage' => 'nullable|url',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+        // Data baru yang akan ditambahkan
+        $newProduct = [
+            'id' => $request->input('id'),
+            'category' => $request->input('category'),
+            'subCategory' => $request->input('subCategory'),
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'disc' => $request->input('disc'),
+            'image' => $request->input('image', 'default_image.jpg'), // Default jika tidak ada
+            'otherImage' => $request->input('otherImage', 'default_other_image.jpg'), // Default jika tidak ada
+        ];
+
+        // Tambahkan data baru ke dalam array $products
+        array_push($this->products, $newProduct);
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->route('products.index')->with('success', 'Produk berhasil disimpan!');
+    }
+    public function show($id)
     {
-        //
+        // Use array_filter to find the product by id
+        $product = collect($this->products)->firstWhere('id', $id);
+
+        if (!$product) {
+            return redirect()->route('products.index')->with('error', 'Product not found!');
+        }
+
+        return view('products.show', ['product' => $product]);
     }
 
     /**

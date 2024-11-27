@@ -8,8 +8,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('/products')->controller(ProductController::class)->group(function () {
-    Route::get('/', 'index')->name('products.home');
-    Route::get('/create', 'create')->name('products.create');
+    Route::get('/', 'index')->name('products.list');
+    Route::get('/create', 'create')->name('products.form');
     Route::get('/edit', 'edit')->name('products.edit');
     Route::post('/store', 'store')->name('products.store');
     Route::post('/update/{id}', 'update')->name('products.update');

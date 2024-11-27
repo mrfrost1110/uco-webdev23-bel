@@ -11,40 +11,55 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="assets/adidas-logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-          </a>
-          <!-- Tombol Toggle dengan Gambar -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="assets/adidas-logo.png" alt="Logo" width="30" height="30">
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Daftar Navigasi -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pria</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Wanita</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Anak</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Others</a>
-              </li>
-            </ul>
-            <!-- Form Pencarian -->
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('assets/adidas-logo.png') }}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+            </a>
+            <!-- Tombol Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="{{ asset('assets/adidas-logo.png') }}" alt="Logo" width="30" height="30">
+            </button>
+            <!-- Menu Navigasi -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('products.home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wanita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Anak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Others</a>
+                    </li>
+                </ul>
+                <!-- Form Pencarian -->
+                <form class="d-flex align-items-center" role="search">
+                    <a href="/cart">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="25"
+                            height="25"
+                            fill="black"
+                            class="bi bi-cart"
+                            viewBox="0 0 20 20"
+                            style="margin-right: 10px;">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                    </a>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-      </nav>
-
+    </nav>
+    <!-- Placeholder Konten -->
+    <main class="container mt-4">
+        {{ $slot }}
+    </main>
 </body>
 </html>

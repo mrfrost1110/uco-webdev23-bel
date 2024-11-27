@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    var $product = array(
+    public $products = array(
         ["id"=> "1234a",
         "category"=>"Pria Sportswear",
         "subCategory"=> "SEPATU",
@@ -126,8 +126,8 @@ class ProductController extends Controller
 
         ["id"=> "1234n",
         "category"=>"Pria Sportswear",
-        "subCategory"=> "SHIRT",
-        "name"=> "GRAFIS CODE BADGE OF SPORT",
+        "subCategory"=> "T-SHIRT",
+        "name"=> "GRAFIS CODES BADGE OF SPORT",
         "price"=> 450000,
         "disc"=> 30,
         "image"=> "https://fastly.picsum.photos/id/902/350/350.jpg?hmac=VGy50trdETKDp9Rtt5brwMQ7JYG7S3kZHCvy5slG1Io",
@@ -181,7 +181,7 @@ class ProductController extends Controller
         ["id"=> "1234t",
         "category"=>"Pria Golf",
         "subCategory"=> "POLO SHIRT",
-        "name"=> "ULTIMASHOW 2.0",
+        "name"=> "GO-TO NOVELTY",
         "price"=> 812000,
         "disc"=> 30,
         "image"=> "https://fastly.picsum.photos/id/902/350/350.jpg?hmac=VGy50trdETKDp9Rtt5brwMQ7JYG7S3kZHCvy5slG1Io",
@@ -190,7 +190,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        return view('products.index');
+        return view('products.index', ['products' => $this->products]);
     }
 
     /**

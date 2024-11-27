@@ -2,7 +2,6 @@
     <div class="form-container">
         <form action="{{ route('products.update', $product['id']) }}" method="POST" enctype="multipart/form-data" onsubmit="return validateInput()">
             @csrf
-            @method('PUT')
             <label for="id">Enter ID (5 characters, letters and numbers only)</label>
             <input type="text" id="id" name="id" maxlength="5" placeholder="{{$product['id']}}" readonly>
 

@@ -75,7 +75,7 @@
             }
 
             // Disc Checker
-            var discount = document.getElementById("discount").value;
+            var discount = document.getElementById("disc").value;
             if (discount < 0 || discount > 100) {
                 alert("Discount must be between 0 and 100.");
                 return false; // Mencegah form disubmit
